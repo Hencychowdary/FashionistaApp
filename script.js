@@ -32,14 +32,20 @@ function fadeOut(){
 
 window.onload = fadeOut();
 
-const btn = document.querySelector('button');
-function random(number) {
-    return Math.floor(Math.random() * (number+1));
+var header = document.querySelector("h1")
+header
+header.style.color='blue'
+function getRandomColor(){
+    var letters ="0123456789ABCDEF";
+    var color='#';
+    for (var i=0;i<6;i++){
+        color +=letters[Math.floor(Math.random()*16)]
+    }
+    return color;
 }
-//Changing bgcolor using rgb color code 
-//Ranges from 0 to 255
-btn.onclick = function()
- {
-    const rndCol = 'rgb('+random(255) + ','+random(255) + ','+random(255)+ ')';
-    document.body.style.backgroundColor = rndCol ;
+function changeHeaderColor()
+{
+    colorInput= getRandomColor()
+    header.style.color=colorInput;
 }
+setInterval("changeHeaderColor()",500);
